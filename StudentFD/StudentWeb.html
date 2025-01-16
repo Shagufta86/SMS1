@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reg.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+    <title>Student Registration</title>
+</head>
+
+<body>
+    <header>
+        <img src="Head1.png" alt="Head templete">
+    </header>
+    <div class="wrapper">
+        <!-- Header with Sign In/Sign Up buttons -->
+        <div class="nav-logo">
+            <h1>Student Registration Form</h1>
+        </div>
+        <!-- Registration Form -->
+        <div class="form-container">
+            <form id="registrationForm" action="http://localhost:8080/api/student/register" method="POST"
+                enctype="multipart/form-data">
+
+                <!-- Personal Information -->
+                <h3>Personal Information</h3>
+                <label class="horizontal-fields">
+                    <input type="text" name="studentName" placeholder="Student Full Name" id="fullname" required>
+                </label>
+                <label class="input-box">
+                    <input type="email" name="email" placeholder="Email" id="email" required>
+                    <span id="email-error" class="error-message"></span>
+                    <input type="text" name="phone" placeholder="Phone Number" id="phone" required>
+                    <span id="phone-error" class="error-message"></span>
+                </label>
+
+                <!-- Aadhar Card Front -->
+                <label>
+                    <input type="file" name="aadharFront" id="real-file-aadhar" hidden>
+                    <button type="button" id="custom-button-aadhar" class="custom-button-aadhar">Upload Aadhar-Card
+                        Front</button>
+                    <span id="aadhar-error" class="error-message"></span>
+                    <span id="custom-text-aadhar" class="custom-text-aadhar">No File Chosen, Yet.</span>
+                </label>
+
+                <!-- Aadhar Card Back -->
+                <label>
+                    <input type="file" name="aadharB" id="real-file-aadharB" hidden>
+                    <button type="button" id="custom-button-aadharB" class="custom-button-aadharB">Upload Aadhar-Card
+                        Back</button>
+                    <span id="aadharB-error" class="error-message"></span>
+                    <span id="custom-text-aadharB" class="custom-text-aadharB">No File Chosen, Yet.</span>
+                </label>
+
+                <!-- Student Photo -->
+                <label>
+                    <input type="file" name="photo" id="real-file-photo" hidden>
+                    <button type="button" id="custom-button-photo" class="custom-button-photo">Upload Student
+                        Photo</button>
+                    <span id="photo-error" class="error-message"></span>
+                    <span id="custom-text-photo" class="custom-text-photo">No File Chosen, Yet.</span>
+                </label>
+
+                <!-- Address -->
+                <h3>Address</h3>
+                <label class="input-box">
+                    <input type="text" name="addressLine1" placeholder="Address Line 1" required>
+                    <input type="text" name="addressLine2" placeholder="Address Line 2" required>
+                </label>
+                <label class="horizontal-fields">
+                    <input type="text" id="country" name="country" value="INDIA" readonly title="Country name">
+                    <input type="text" id="state" name="state" value="Tamil Nadu" readonly title="State name">
+                </label>
+                <label class="horizontal-fields">
+                    <select name="district" required>
+                        <option value="Select District" disabled selected>Select District</option>
+                        <option value="Ariyalur">Ariyalur </option>
+                        <option value="Chengalpattu">Chengalpattu</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Coimbatore">Coimbatore</option>
+                        <option value="Cuddalore">Cuddalore</option>
+                        <option value="Dharmapuri">Dharmapuri</option>
+                        <option value="Dindigul">Dindigul</option>
+                        <option value="Erode">Erode</option>
+                        <option value="Kallakurichi">Kallakurichi</option>
+                        <option value="Kanchipuram">Kanchipuram</option>
+                        <option value="Kanniyakumari">Kanniyakumari</option>
+                        <option value="Karur">Karur</option>
+                        <option value="Krishnagiri">Krishnagiri</option>
+                        <option value="Madurai">Madurai</option>
+                        <option value="Mayiladuthurai">Mayiladuthurai</option>
+                        <option value="Nagapattinam">Nagapattinam</option>
+                        <option value="Namakkal">Namakkal</option>
+                        <option value="Nilgiris">Nilgiris</option>
+                        <option value="Perambalur">Perambalur</option>
+                        <option value="Pudukkottai">Pudukkottai</option>
+                        <option value="Ramanathapuram">Ramanathapuram</option>
+                        <option value="Ranipet">Ranipet</option>
+                        <option value="Salem">Salem</option>
+                        <option value="Sivagangai">Sivagangai</option>
+                        <option value="Tenkasi">Tenkasi</option>
+                        <option value="Thanjavur">Thanjavur</option>
+                        <option value="Theni">Theni</option>
+                        <option value="Thoothukudi">Thoothukudi</option>
+                        <option value="Tiruchirappalli">Tiruchirappalli</option>
+                        <option value="Tirunelveli">Tirunelveli</option>
+                        <option value="Tirupathur">Tirupathur</option>
+                        <option value="Tiruppur">Tiruppur</option>
+                        <option value="Tiruvallur">Tiruvallur</option>
+                        <option value="Tiruvannamalai">Tiruvannamalai</option>
+                        <option value="Tiruvarur">Tiruvarur</option>
+                        <option value="Vellore">Vellore</option>
+                        <option value="Viluppuram">Viluppuram</option>
+                        <option value="Virudhunagar">Virudhunagar</option>
+                    </select>
+                    <input type="text" name="pinCode" placeholder="Pin Code" required>
+                </label>
+
+                <!-- Parent/Guardian Information -->
+                <h3>Parent/Guardian's Information</h3>
+                <label class="input-box">
+                    <select name="relationType" required>
+                        <option value="Select Parent/Guardian's Information" disabled selected>Select Parent/Guardian's
+                            Information</option>
+                        <option value="Parent's Information">Parent's Information</option>
+                        <option value="Guardian's Information">Guardian's Information</option>
+                    </select>
+                    <input type="text" name="parentGuardianName" placeholder="Full Name" required>
+                    <input type="text" name="parentGuardianContact" placeholder=" Contact Number" required>
+                    <input type="text" name="emergencyContactNumber" placeholder="Alternate Emergency Contact Number"
+                        required>
+                </label>
+
+
+                <!--Transportation Details-->
+                <label for="transport" id="transportation" class="input-box">
+                    <h3>Transportation</h3>
+                    <select id="transportSelect" name="transportation">
+                        <option value="" disabled selected>Select Transportation</option>
+                        <option value="Own Transport" data-fee="0">Own Transport</option>
+                        <option value="College Transport" data-fee="5000">College Transport</option>
+                    </select>
+                </label>
+                <label id="transportPaymentSection" class="payment-section">
+                    <div><span id="transportPaymentCost"></span></div>
+                </label>
+                <!-- Hidden Input to Store Payment Cost -->
+                <input type="hidden" id="transportPaymentInput" name="transportationPayment">
+
+                <!-- Course Details -->
+                <label for="courseSubject" id="course" class="input-box">
+                    <h3>Course</h3>
+                    <select id="courseSelect" name="course">
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="B.Com">B.Com</option>
+                        <option value="B.Sc">B.Sc</option>
+                        <option value="B.A">B.A</option>
+                    </select>
+                </label>
+                <label for="courseYear" id="year" class="input-box">
+                    <h3>Course Year</h3>
+                    <select id="yearSelect" name="year">
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="1st Year" data-fee="10000">1st Year </option>
+                        <option value="2nd Year" data-fee="20000">2nd Year </option>
+                        <option value="3rd Year" data-fee="30000">3rd Year </option>
+                    </select>
+                </label>
+                <h3>Course Code</h3>
+                <label class="input-box">
+                    <input type="text" id="courseCode" name="courseCode" placeholder="Code" required>
+                </label>
+                <div class="input-box">
+                    <h3>Joining Year</h3>
+                    <input type="text" id="yearJoined" name="yearJoined" placeholder="Year" required>
+                </div>
+                <label id="paymentSection" class="payment-section">
+                    <div><span id="paymentCost"></span></div>
+                </label>
+                <input type="hidden" id="coursePaymentInput" name="coursePaymentCost" value="0">
+
+                <!-- Day Scholar/Hosteller -->
+                <label for="DayScholarHosteller" id="accommodationType" class="input-box">
+                    <h3>Day Scholar/Hosteller</h3>
+                    <select id="DHSelect" name="accommodationType">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Day Scholar" data-fee="0">Day Scholar</option>
+                        <option value="Hosteller" data-fee="5000">Hosteller</option>
+                    </select>
+                </label>
+                <label id="DHPaymentSection" class="payment-section">
+                    <div> <span id="DHPaymentCost"></span></div>
+                </label>
+                <input type="hidden" id="DHPaymentInput" name="DHPayment" value="0">
+
+                <!-- Submit Button -->
+                <label class="submit-btn2">
+                    <input type="submit" id="submit-btn2" value="Submit">
+                </label>
+            </form>
+        </div>
+
+
+        <!-- Popup -->
+        <div id="popup"  class="popup" style="display: none;">
+            <div class="popup-content">
+            <p id="popup-message"></p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+       
+        <!-- Add a background overlay for the popup -->
+        <div id="overlay" class="overlay"></div>
+
+        <footer>
+            <p>&copy; 2025 ANNAI FATHIMA WOMEN'S ARABIC COLLEGE. ALL RIGHTS RESERVED.</p>
+        </footer>
+
+    </div>
+    <script src="SW.js"></script>
+</body>
+
+</html>
